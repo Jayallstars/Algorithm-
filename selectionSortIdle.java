@@ -5,13 +5,13 @@ public class selectionSortIdle {
                         minValue = arr[i];
                         minIndex = i;
                         for (j = i; j < arr.length; j++){
-                                if (arr[j] < minValue){
-                                        minValue = arr[j];
-                                        minIndex = j;
+                                if (arr[j] < minValue){ // if arr < min
+                                        minValue = arr[j]; // then swap
+                                        minIndex = j; // set new index
                                 }
                         }
-                        if (minValue < arr[i]){
-                                temp = arr[i];
+                        if (minValue < arr[i]){ //check minvalue was the first value then swap index
+                                temp = arr[i]; // if not the first value we will swap minvalur to the first index
                                 arr[i] = arr[minIndex];
                                 arr[minIndex] = temp;
                         }
