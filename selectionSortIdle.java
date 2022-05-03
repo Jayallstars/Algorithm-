@@ -1,25 +1,28 @@
+import java.util.Arrays;
+
 public class selectionSortIdle {
-        public static void selectionSort(int[] arr) {
-                int i,j,minValue,minIndex,temp = 0;
-                for (i = 0; i < arr.length; i++){
-                        minValue = arr[i];
-                        minIndex = i;
-                        for (j = i; j < arr.length; j++){
-                                if (arr[j] < minValue){ // if arr < min
-                                        minValue = arr[j]; // then swap
-                                        minIndex = j; // set new index
-                                }
+        public static void selectionSort(int a[]) {
+                for (int pass = a.length - 1; pass > 0; pass--) {
+                        int max = pass;
+                        for (int n = pass; n >= 0; n--) { // find max value
+                                if (a[n] > a[max])
+                                        max = n;
                         }
-                        if (minValue < arr[i]){ //check minvalue was the first value then swap index
-                                temp = arr[i]; // if not the first value we will swap minvalur to the first index
-                                arr[i] = arr[minIndex];
-                                arr[minIndex] = temp;
+                        if (pass != max) {
+                                int temp = a[pass];
+                                a[pass] = a[max];
+                                a[max] = temp;
+                                // System.out.println("Pass value " + pass);
+                                // for (int i : a) {
+                                //         System.out.print(i + " ");
+                                // }
+                                // System.out.println();
                         }
                 }
         }
 
         public static void main(String a[]) {
-                int[] arr1 = { 50, 15, 4, 9, 3, 91 };
+                int[] arr1 = { 2, 6, 4, 8, 10, 12, 89, 68, 45, 37 };
                 System.out.println("Before Selection Sort");
                 for (int i : arr1) {
                         System.out.print(i + " ");
